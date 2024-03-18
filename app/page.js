@@ -6,8 +6,6 @@ import { Grid, Button } from '@mui/material';
 import { useFormData } from './contexts/FormDataContxt';
 import { FormDataProvider } from './contexts/FormDataContxt';
 import { useSVGContext } from './contexts/SVGContext';
-import html2canvas from 'html2canvas';
-
 
 export default function Home() {
   const {formData, setFormData } = useFormData();
@@ -69,9 +67,9 @@ export default function Home() {
     </Grid>
     <Grid item xs={7} sx={{ml:1, mt:-13}} >
       <SVGComponent {...formData} />
-      <Button onClick={handleDownloadJPG} variant="contained" color="primary">
+      {/* <Button onClick={handleDownloadJPG} variant="contained" color="primary">
           Download JPG
-        </Button>
+        </Button> */}
     </Grid>
 
   </Grid>

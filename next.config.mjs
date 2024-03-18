@@ -24,7 +24,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output:'export',
-  basePath: '/charitywalk',
+  // basePath: '/charitywalk',
   reactStrictMode : true,
   };
   
