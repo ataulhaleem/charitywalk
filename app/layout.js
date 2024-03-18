@@ -1,6 +1,9 @@
+// 'use client'
+
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { FormDataProvider } from "./contexts/FormDataContxt";
+import { SVGProvider } from "./contexts/SVGContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -11,7 +14,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <FormDataProvider>
+        <SVGProvider>
+
       <body className={inter.className}>{children}</body>
+      </SVGProvider>
+
+      </FormDataProvider>
     </html>
   );
 }
