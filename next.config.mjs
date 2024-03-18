@@ -7,7 +7,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output:'export',
-  basePath: '/isa-Manager',
+  basePath: '/charitywalk',
   reactStrictMode : true,
     webpack: (config) => {
       config.module.rules.push({
