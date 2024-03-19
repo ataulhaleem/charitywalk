@@ -6,7 +6,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useFormData, FormDataProvider } from '../contexts/FormDataContxt';
 
-const SVGForm = () => {
+const FlyerForm = () => {
   const {formData, setFormData} = useFormData();
 
   const handleInputChange = (e) => {
@@ -153,4 +153,4 @@ const SVGForm = () => {
   );
 };
 
-export default SVGForm;
+export default FlyerForm;

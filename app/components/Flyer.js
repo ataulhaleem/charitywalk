@@ -1,7 +1,8 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import { useSVGContext } from '../contexts/SVGContext';
 
-const SVGComponent = ({ 
+const Flyer = ({ 
   walkId, 
   jamaat,
   date,
@@ -114,4 +115,4 @@ const generateSVGString = ({
   return svgString;
 };
 
-export default SVGComponent;
+export default Flyer;

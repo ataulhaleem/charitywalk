@@ -23,10 +23,12 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output:'export',
-  // basePath: '/charitywalk',
+  // basePath: "/charitywalk",
+  output:"export",
   reactStrictMode : true,
   };
   
   export default nextConfig;
+  
+
   
