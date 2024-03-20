@@ -4,10 +4,19 @@ import Flyer from './Flyer';
 import FlyerForm from './FlyerForm';
 import { useSVGContext } from '../contexts/SVGContext';
 import { useFormData } from '../contexts/FormDataContxt';
+import { useAuthContext } from '../contexts/AuthenticationContex';
+import Login from './Login';
+
+
+// import { sql } from '@vercel/postgres';
+// import { NextResponse } from 'next/server';
+
+
 
 export default function App() {
   const {formData, setFormData } = useFormData();
   const {svgString} = useSVGContext();
+  const {isAuthenticated, setIsAuthenticated} = useAuthContext()
 
   const svgToJpg = (svgString) => {
 
@@ -55,9 +64,16 @@ export default function App() {
   
 
 
+  // async function Cart({ params }) {
+  //   const { rows } = await sql`SELECT * from CARTS where user_id=${params.user}`;
+  // }  
+
   return (
 
-    <Grid container spacing={2} sx={{padding:5}}>
+    <>
+
+    {isAuthenticated ? <div>
+      <Grid container spacing={2} sx={{padding:5}}>
         <Grid item xs={4}>
         <FlyerForm/>
         </Grid>
@@ -69,6 +85,12 @@ export default function App() {
         </Grid>
 
   </Grid>
+
+    </div>
+:
+<Login/>  
+}  
+    </>
 
 
 

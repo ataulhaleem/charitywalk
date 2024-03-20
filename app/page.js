@@ -1,15 +1,21 @@
-"use client";
+// "use client";
+
 import App from "./components/App";
 import { FormDataProvider } from "./contexts/FormDataContxt";
 import { SVGProvider } from "./contexts/SVGContext";
+import { AuthProvider } from "./contexts/AuthenticationContex";
 
 export default function Home() {
   return (
+    <AuthProvider>
+
     <FormDataProvider>
       <SVGProvider>
         <App />
       </SVGProvider>
     </FormDataProvider>
+    </AuthProvider>
+
   );
 }
 

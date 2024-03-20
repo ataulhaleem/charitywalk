@@ -1,4 +1,5 @@
 'use client'
+
 import { TextField, Grid } from '@mui/material';
 
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -25,8 +26,6 @@ const FlyerForm = () => {
 
 
   return (
-    <FormDataProvider>
-
     <form>
       <Grid container spacing={2}>
         <Grid item xs={6}>
@@ -148,8 +147,6 @@ const FlyerForm = () => {
         </Grid>
       </Grid>
     </form>
-    </FormDataProvider>
-
   );
 };
 

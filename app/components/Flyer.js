@@ -60,6 +60,7 @@ const Flyer = ({
 
   return (
     <div dangerouslySetInnerHTML={{ __html: svgStringLocal }} />
+    // <h1>This is svg figure component</h1>
   );
 };
 
@@ -82,7 +83,7 @@ const generateSVGString = ({
   const svgString = `
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 
-      <image x="0" y="0" width="100" height="100" href='/Charity_Walk_Flyer_Germany.jpg'  />
+      <image x="0" y="0" width="100" height="100" href='/charitywalk/Charity_Walk_Flyer_Germany.jpg'  />
      
       <rect x="5" y="53" width="40" height="3" fill='#273f63' />
       <text x="5" y="55" width="40" height="3" font-size="2" font-family="Singolare" font-weight="bold" text-anchor="left" fill="white">${walkId}. AHMADIYYA</text>
@@ -96,7 +97,7 @@ const generateSVGString = ({
       <text x="5" y="73" width="18" height="1" font-size="1" font-family="Singolare" font-weight="bold" text-anchor="left" fill="white">${place}</text>
       <text x="5" y="74" width="18" height="1" font-size="1" font-family="Singolare" text-anchor="left" fill="white">${street}, ${number}</text>
       <text x="5" y="75" width="18" height="1" font-size="1" font-family="Singolare" text-anchor="left" fill="white">${postcode}, ${city}</text>
-      <image x="19" y="70.5" width="5" height="7" href='/runningMan.jpg'  />
+      <image x="19" y="70.5" width="5" height="7" href='/charitywalk/runningMan.jpg'  />
 
 
       <text x="25" y="73" width="18" height="1" font-size="1" font-family="Singolare" text-anchor="left" fill="white">Startgeld:</text>
