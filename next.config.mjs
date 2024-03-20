@@ -23,9 +23,12 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // basePath: "/charitywalk",
+  basePath: "/charitywalk",
   output:"export",
   reactStrictMode : true,
+  env : {
+    POSTGRES_URL : `${process.env.NEXT_PUBLIC_POSTGRES_URL}`
+  }
   };
   
   export default nextConfig;
