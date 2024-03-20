@@ -32,42 +32,44 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-async function validateUser(email, passwd){
-    try {
-    var user_data = await sql`SELECT * FROM users`
-    user_data.rows.forEach(user => {
-      if(user.user_id == email){
-        return true
-      }else{
-        return false
-      }
-    })
+async function validateUser(email, passwd) {
+  try {
+    var user_data = await sql`SELECT * FROM users`;
+    const user = user_data.rows.find(user => user.user_id === email);
+
+    if (user) {
+      // User found, return true
+      return true;
+    } else {
+      // User not found, return false
+      return false;
+    }
   } catch (e) {
     if (e.message.includes('relation "users" does not exist')) {
       console.log(
         'Table does not exist, creating and seeding it with dummy data now...'
-      )
+      );
       // Table is not created yet
-      startTime = Date.now()
-      user_data = await sql`SELECT * FROM users`
+      startTime = Date.now();
+      user_data = await sql`SELECT * FROM users`;
     } else {
-      throw e
+      throw e;
     }
   }
-
 }
+
 
 export default function Login() {
   const {isAuthenticated, setIsAuthenticated} = useAuthContext()
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     var credentials = {}
     const data = new FormData(event.currentTarget);
     for (let [key, value] of data.entries()) {
      credentials[key] =  value;
     }
-    var validUser = validateUser(credentials.email, credentials.passwd)
+    var validUser = await validateUser(credentials.email, credentials.password)
     setIsAuthenticated(validUser)
   };
 
