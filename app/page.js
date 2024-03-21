@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import App from "./components/App";
 import { FormDataProvider } from "./contexts/FormDataContxt";

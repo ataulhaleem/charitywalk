@@ -1,3 +1,4 @@
+'use client'
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -32,31 +33,7 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-async function validateUser(email, passwd) {
-  try {
-    var user_data = await sql`SELECT * FROM users`;
-    const user = user_data.rows.find(user => user.user_id === email);
 
-    if (user) {
-      // User found, return true
-      return true;
-    } else {
-      // User not found, return false
-      return false;
-    }
-  } catch (e) {
-    if (e.message.includes('relation "users" does not exist')) {
-      console.log(
-        'Table does not exist, creating and seeding it with dummy data now...'
-      );
-      // Table is not created yet
-      startTime = Date.now();
-      user_data = await sql`SELECT * FROM users`;
-    } else {
-      throw e;
-    }
-  }
-}
 
 
 export default function Login() {
@@ -69,8 +46,16 @@ export default function Login() {
     for (let [key, value] of data.entries()) {
      credentials[key] =  value;
     }
-    var validUser = await validateUser(credentials.email, credentials.password)
-    setIsAuthenticated(validUser)
+    fetch('/api/auth', {
+      method : 'POST', 
+      headers : {'Content-Type': 'application/json'},
+      body: JSON.stringify({ 'email' : credentials.email, 'password' : credentials.password })
+    })
+    .then(response => response.json())
+    .then(data => {
+    setIsAuthenticated(data.authenticated)
+  })
+
   };
 
   return (
