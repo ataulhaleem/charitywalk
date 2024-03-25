@@ -6,8 +6,12 @@ const SVGContext = createContext();
 export const SVGProvider = ({ children }) => {
   const [svgString, setSVGString] = useState('');
 
+  var value = {
+    svgString, setSVGString
+  }
+
   return (
-    <SVGContext.Provider value={{ svgString, setSVGString }}>
+    <SVGContext.Provider value={value}>
       {children}
     </SVGContext.Provider>
   );

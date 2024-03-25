@@ -19,6 +19,7 @@ export const FormDataProvider = ({ children }) => {
     regularTrackLength: 5,
     date: new Date().toLocaleDateString(),
     time: `${new Date().getHours()}:${new Date().getMinutes()}`
+    
   });
 
   return (
